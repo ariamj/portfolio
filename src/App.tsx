@@ -36,7 +36,7 @@ function App() {
     <div className="bg-black">
       <Hero />
       <div className="min-h-32" />
-      <div className="grid grid-cols-1 gap-16 p-16">
+      <div className="grid grid-cols-1 gap-16 p-6 md:p-16">
         {projects.map((project, index) => (
           <ProjectCard
             title={project.title}

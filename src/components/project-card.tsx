@@ -24,46 +24,37 @@ export function ProjectCard({
     right = false,
 }: ProjectCardProps) {
     return (
-        <Card className="relative z-0 hover:z-10 focus-within:z-40 w-full h-[50vh] bg-transparent text-white/80 grid grid-cols-1 items-center justify-center md:grid-cols-2 gap-4 p-4">
+        <Card className="relative z-0 hover:z-10 focus-within:z-40 w-full md:h-[50vh] bg-transparent text-white/80 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 p-4">
             <div className="glass absolute inset-0 -z-10 pointer-events-none" />
-            {right && (
-                <Card className="bg-transparent max-h-[85%] flex items-center justify-center">
-                    <HeroVideoDialog
-                        className="block dark:hidden w-[105%]"
-                        animationStyle="from-center"
-                        videoSrc={videoSrc}
-                        thumbnailSrc={thumbnailSrc}
-                        thumbnailAlt={thumbnailAlt}
-                    />
-                </Card>
-            )}
-            <div id="proj-details" className="h-full flex flex-col gap-2">
-                <div className="w-full flex-1 p-2">
-                    <h3 className="text-lg font-semibold">{title}</h3>
-                    <p className="text-justify py-2">
-                        {description}
-                    </p>
-                </div>
-                <div className={cn(
-                    "w-full flex-end flex gap-2 px-2",
-                    right && "justify-end",
-                )}>
-                    <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiPlayLine /></Button>
-                    <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiLinksLine /></Button>
-                    <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiGithubLine className="h-4 w-4" /></Button>
-                </div>
+            <div className="order-1 w-full p-2 md:order-none">
+                <h3 className="text-xl font-semibold text-white">{title}</h3>
             </div>
-            {!right && (
-                <Card className="bg-transparent max-h-[85%] flex items-center justify-center">
-                    <HeroVideoDialog
-                        className="block dark:hidden w-[105%]"
-                        animationStyle="from-center"
-                        videoSrc={videoSrc}
-                        thumbnailSrc={thumbnailSrc}
-                        thumbnailAlt={thumbnailAlt}
-                    />
-                </Card>
-            )}
+            <Card className={cn(
+                "order-2 w-full max-h-[85%] bg-transparent flex items-center justify-center md:order-none",
+                right ?  "md:col-start-1 md:row-span-3 md:row-start-1" : "md:col-start-2 md:row-span-3 md:row-start-1"
+            )}>
+                <HeroVideoDialog
+                className="block dark:hidden w-[105%]"
+                animationStyle="from-center"
+                videoSrc={videoSrc}
+                thumbnailSrc={thumbnailSrc}
+                thumbnailAlt={thumbnailAlt}
+                />
+            </Card>
+            <div className="order-3 w-full p-2 md:order-none">
+                <p className="text-justify py-2 text-white/80">
+                {description}
+                </p>
+            </div>
+            <div className={cn(
+                "order-4 w-full flex gap-2 px-2 md:order-none",
+                right ? "justify-end" : "justify-start"
+            )}>
+                <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiPlayLine /></Button>
+                <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiLinksLine /></Button>
+                <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiGithubLine className="h-4 w-4" /></Button>
+            </div>
+
             <BorderBeam
                 duration={32}
                 size={600}
