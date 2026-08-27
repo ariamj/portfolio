@@ -1,45 +1,58 @@
 import { cn } from "@/lib/utils";
-// import { Backlight } from "./ui/backlight";
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
-import { HeroVideoDialog } from "./ui/hero-video-dialog";
-import { BorderBeam } from "./ui/border-beam";
-import { RiGithubLine, RiLinksLine, RiPlayLine } from "@remixicon/react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { RiGithubLine } from "@remixicon/react";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 interface ProjectCardProps {
     title?: string;
     description?: string;
-    videoSrc: string;
+    mediaSrc: string;
     thumbnailSrc: string;
     thumbnailAlt?: string;
+    image?: boolean;
     right?: boolean;
+    links?: string[];
+    linkIcons?: React.ReactNode[];
+    githubLink?: string;
 }
 
 export function ProjectCard({
     title = "Project Title",
     description = "Project description...",
-    videoSrc,
+    mediaSrc,
     thumbnailSrc,
     thumbnailAlt = "Project thumbnail",
+    image,
     right = false,
+    links,
+    linkIcons,
+    githubLink,
 }: ProjectCardProps) {
     return (
         <Card className="relative z-0 hover:z-10 focus-within:z-40 w-full md:h-[50vh] bg-transparent text-white/80 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 p-4">
             <div className="glass absolute inset-0 -z-10 pointer-events-none" />
-            <div className="order-1 w-full p-2 md:order-none">
-                <h3 className="text-xl font-semibold text-white">{title}</h3>
-            </div>
+            <CardTitle>
+                <div className="order-1 w-full p-2 md:order-none">
+                    <h3 className="text-xl font-semibold text-white">{title}</h3>
+                </div>
+            </CardTitle>
             <Card className={cn(
                 "order-2 w-full max-h-[85%] bg-transparent flex items-center justify-center md:order-none",
                 right ?  "md:col-start-1 md:row-span-3 md:row-start-1" : "md:col-start-2 md:row-span-3 md:row-start-1"
             )}>
-                <HeroVideoDialog
-                className="block dark:hidden w-[105%]"
-                animationStyle="from-center"
-                videoSrc={videoSrc}
-                thumbnailSrc={thumbnailSrc}
-                thumbnailAlt={thumbnailAlt}
-                />
+                <CardContent>
+                    <HeroVideoDialog
+                    className="block dark:hidden w-[105%]"
+                    animationStyle="from-center"
+                    mediaSrc={mediaSrc}
+                    thumbnailSrc={thumbnailSrc}
+                    thumbnailAlt={thumbnailAlt}
+                    image={image}
+                    />
+                </CardContent>
             </Card>
             <div className="order-3 w-full p-2 md:order-none">
                 <p className="text-justify py-2 text-white/80">
@@ -50,9 +63,37 @@ export function ProjectCard({
                 "order-4 w-full flex gap-2 px-2 md:order-none",
                 right ? "justify-end" : "justify-start"
             )}>
-                <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiPlayLine /></Button>
-                <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiLinksLine /></Button>
-                <Button variant="outline" className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"><RiGithubLine className="h-4 w-4" /></Button>
+                {links && links.map((link, index) => (
+                    <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                        key={index}
+                    >
+                        <Button
+                            variant="outline"
+                            className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"
+                        >
+                            {linkIcons && linkIcons[index] ? linkIcons[index] : <SquareArrowOutUpRight />}
+                        </Button>
+                    </a>
+                ))}
+                {githubLink && (
+                    <a
+                        href={githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                    >
+                        <Button
+                            variant="outline"
+                            className="cursor-pointer bg-transparent hover:bg-white/10 hover:text-white"
+                        >
+                            <RiGithubLine />
+                        </Button>
+                    </a>
+                )}
             </div>
 
             <BorderBeam

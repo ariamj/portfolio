@@ -21,12 +21,12 @@ export function NavDock() {
         {
             icon: <RiGithubLine className="size-4 text-white" />,
             label: "GitHub",
-            href: "https://github.com"
+            href: "https://github.com/ariamj"
         },
         {
             icon: <RiLinkedinLine className="size-4 text-white" />,
             label: "LinkedIn",
-            href: "https://linkedin.com"
+            href: "https://www.linkedin.com/in/arianna-joe"
         }
     ]
     
@@ -42,23 +42,27 @@ export function NavDock() {
                 className="transition-all duration-600"
             >
                 {openDock && dockItems.map((item) => (
-                    <DockIcon>
+                    <DockIcon key={item.label}>
                         <Tooltip>
-                            <TooltipTrigger render={(
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    // href=""
-                                    aria-label="link"
-                                    className={cn(
-                                    // buttonVariants({ variant: "ghost", size: "icon" }),
-                                    "size-12 rounded-full cursor-pointer hover:backdrop-blur-sm hover:bg-white/10",
-                                    )}
-                                >
-                                    {item.icon}
-                                </Button>
-                            )}>
-                            </TooltipTrigger>
+                            <a
+                                href={item.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <TooltipTrigger render={(
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        aria-label="link"
+                                        className={cn(
+                                            "size-12 rounded-full cursor-pointer hover:backdrop-blur-sm hover:bg-white/10",
+                                        )}
+                                    >
+                                        {item.icon}
+                                    </Button>
+                                )}>
+                                </TooltipTrigger>
+                            </a>
                             <TooltipContent>
                                 <p>{item.label}</p>
                             </TooltipContent>
