@@ -5,6 +5,7 @@ import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { RiGithubLine } from "@remixicon/react";
 import { SquareArrowOutUpRight } from "lucide-react";
+import React from "react";
 
 interface ProjectCardProps {
     title?: string;
@@ -31,8 +32,13 @@ export function ProjectCard({
     linkIcons,
     githubLink,
 }: ProjectCardProps) {
+    const [isMediaOpen, setIsMediaOpen] = React.useState(false);
+
     return (
-        <Card className="relative z-0 hover:z-10 focus-within:z-40 w-full md:h-[50vh] bg-transparent text-white/80 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 p-4">
+        <Card className={cn(
+            "relative z-0 hover:z-10 focus-within:z-40 w-full md:h-[50vh] bg-transparent text-white/80 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 p-4",
+            isMediaOpen ? "z-[90]" : "z-0 hover:z-10"
+        )}>
             <div className="glass absolute inset-0 -z-10 pointer-events-none" />
             <CardTitle>
                 <div className="order-1 w-full p-2 md:order-none">
@@ -43,7 +49,7 @@ export function ProjectCard({
                 "order-2 w-full max-h-[85%] bg-transparent flex items-center justify-center md:order-none",
                 right ?  "md:col-start-1 md:row-span-3 md:row-start-1" : "md:col-start-2 md:row-span-3 md:row-start-1"
             )}>
-                <CardContent>
+                <CardContent onClick={() => setIsMediaOpen(true)}>
                     <HeroVideoDialog
                     className="block dark:hidden w-[105%]"
                     animationStyle="from-center"
@@ -53,6 +59,16 @@ export function ProjectCard({
                     image={image}
                     />
                 </CardContent>
+                {isMediaOpen && (
+                    <div
+                        className="fixed inset-0 z-[-50]"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setIsMediaOpen(false);
+                        }}
+                    >
+                    </div>
+                )}
             </Card>
             <div className="order-3 w-full p-2 md:order-none">
                 <p className="text-justify py-2 text-white/80">

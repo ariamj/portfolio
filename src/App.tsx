@@ -38,7 +38,7 @@ function App() {
     {
       title: "Portfolio Website",
       description: description,
-      mediaSrc: "src/assets/images/portfolio_thumbnail.png",
+      mediaSrc: portfolio_thumbnail,
       thumbnailSrc: portfolio_thumbnail,
       thumbnailAlt: "Portfolio Website thumbnail",
       image: true,
@@ -72,7 +72,7 @@ function App() {
     {
       title: "Ceramics Timeline Website",
       description: description,
-      mediaSrc: "src/assets/images/ceramics_timeline_thumbnail.png",
+      mediaSrc: ceramics_timeline_thumbnail,
       thumbnailSrc: ceramics_timeline_thumbnail,
       thumbnailAlt: "Ceramics Timeline thumbnail",
       image: true,
@@ -116,7 +116,7 @@ function App() {
           className={cn(
               "[mask-image:radial-gradient(450px_circle_at_center,black,transparent)]",
               "inset-x-[-25%] inset-y-[-40%] -skew-y-12",
-              "relative z-20 -top-100"
+              "relative z-0 -top-100"
           )}
           width={60}
           height={60}
