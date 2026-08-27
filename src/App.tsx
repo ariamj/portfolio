@@ -2,12 +2,17 @@ import './App.css'
 import { Hero } from './components/hero'
 import { ProjectCard } from './components/project-card'
 import { NavDock } from './components/nav-dock'
-
-import fish_animation from './assets/images/Fish_Animation.gif'
-import jellyfish_animation from './assets/images/Jellyfish_Animation.gif'
 import { PlayIcon, Trophy } from 'lucide-react'
 import { cn } from './lib/utils'
 import { InteractiveGridPattern } from './components/ui/interactive-grid-pattern'
+
+import fish_animation from './assets/images/Fish_Animation.gif'
+import jellyfish_animation from './assets/images/Jellyfish_Animation.gif'
+import harmonic_hustle_thumbnail from './assets/images/harmonic_hustle_thumbnail.png'
+import portfolio_thumbnail from './assets/images/portfolio_thumbnail.png'
+import cat_animation_thumbnail from './assets/images/cat_animation_thumbnail.png'
+import ceramics_timeline_thumbnail from './assets/images/ceramics_timeline_thumbnail.png'
+import big_2_thumbnail from './assets/images/big_2_thumbnail.png'
 
 function App() {
 
@@ -18,8 +23,8 @@ function App() {
       title: "Harmonic Hustle",
       description: description,
       mediaSrc: "https://youtube.com/embed/lfx6yT8nD4E",
-      thumbnailSrc: "src/assets/images/harmonic_hustle_thumbnail.png",
-      thumbnailAlt: "Harmonic Hustle Demo thumbnail",
+      thumbnailSrc: harmonic_hustle_thumbnail,
+      thumbnailAlt: "Harmonic Hustle Trailer",
       links: [
         "https://www.students.cs.ubc.ca/~cs-427/games/",
         "https://youtube.com/watch?v=w3rflAO-Phg"
@@ -34,7 +39,7 @@ function App() {
       title: "Portfolio Website",
       description: description,
       mediaSrc: "src/assets/images/portfolio_thumbnail.png",
-      thumbnailSrc: "src/assets/images/portfolio_thumbnail.png",
+      thumbnailSrc: portfolio_thumbnail,
       thumbnailAlt: "Portfolio Website thumbnail",
       image: true,
       links: ["https://ariaj-portfolio.vercel.app/"],
@@ -44,8 +49,8 @@ function App() {
       title: "Cat Animation",
       description: description,
       mediaSrc: "https://youtube.com/embed/x448crcECJ8",
-      thumbnailSrc: "src/assets/images/cat_animation_thumbnail.png",
-      thumbnailAlt: "Project 2 thumbnail",
+      thumbnailSrc: cat_animation_thumbnail,
+      thumbnailAlt: "Cat Animation",
       image: false,
     },
     {
@@ -53,7 +58,7 @@ function App() {
       description: description,
       mediaSrc: fish_animation,
       thumbnailSrc: fish_animation,
-      thumbnailAlt: "Project 3 thumbnail",
+      thumbnailAlt: "Fish Animation",
       image: true,
     },
     {
@@ -61,14 +66,14 @@ function App() {
       description: description,
       mediaSrc: jellyfish_animation,
       thumbnailSrc: jellyfish_animation,
-      thumbnailAlt: "Project 4 thumbnail",
+      thumbnailAlt: "Jelly Fish Animation",
       image: true,
     },
     {
       title: "Ceramics Timeline Website",
       description: description,
       mediaSrc: "src/assets/images/ceramics_timeline_thumbnail.png",
-      thumbnailSrc: "src/assets/images/ceramics_timeline_thumbnail.png",
+      thumbnailSrc: ceramics_timeline_thumbnail,
       thumbnailAlt: "Ceramics Timeline thumbnail",
       image: true,
       links: ["https://ceramics-timeline.netlify.app/"],
@@ -78,8 +83,8 @@ function App() {
       title: "Big 2 Game",
       description: description,
       mediaSrc: "https://youtube.com/embed/UtmRNijrMRI",
-      thumbnailSrc: "src/assets/images/big_2_thumbnail.png",
-      thumbnailAlt: "Big 2 Game thumbnail",
+      thumbnailSrc: big_2_thumbnail,
+      thumbnailAlt: "Big 2 Game Demo",
       image: false,
       githubLink: "https://github.com/ariamj/Big2-Game",
     },
