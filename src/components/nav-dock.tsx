@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import React from 'react'
 import { House } from 'lucide-react'
+import { Link } from 'wouter'
 
 export function NavDock() {
     const [openDock, setOpenDock] = React.useState(false)
@@ -54,24 +55,45 @@ export function NavDock() {
                 {openDock && dockItems.map((item) => (
                     <DockIcon key={item.label}>
                         <Tooltip>
-                            <a
-                                href={item.href}
-                                {...(item.external && { target: "_blank", rel: "noopener noreferrer" })}
-                            >
-                                <TooltipTrigger render={(
-                                    <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        aria-label="link"
-                                        className={cn(
-                                            "size-12 rounded-full cursor-pointer hover:backdrop-blur-sm hover:bg-white/10",
-                                        )}
-                                    >
-                                        {item.icon}
-                                    </Button>
-                                )}>
-                                </TooltipTrigger>
-                            </a>
+                            {item.external ? (
+                                <a
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <TooltipTrigger render={(
+                                        <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            aria-label="link"
+                                            className={cn(
+                                                "size-12 rounded-full cursor-pointer hover:backdrop-blur-sm hover:bg-white/10",
+                                            )}
+                                        >
+                                            {item.icon}
+                                        </Button>
+                                    )}>
+                                    </TooltipTrigger>
+                                </a>
+                            ) : (
+                                <Link
+                                    to={item.href}
+                                >
+                                    <TooltipTrigger render={(
+                                        <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            aria-label="link"
+                                            className={cn(
+                                                "size-12 rounded-full cursor-pointer hover:backdrop-blur-sm hover:bg-white/10",
+                                            )}
+                                        >
+                                            {item.icon}
+                                        </Button>
+                                    )}>
+                                    </TooltipTrigger>
+                                </Link>
+                            )}
                             <TooltipContent>
                                 <p>{item.label}</p>
                             </TooltipContent>
