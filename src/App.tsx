@@ -5,6 +5,7 @@ import { NavDock } from './components/nav-dock'
 import { Artfolio } from './components/artfolio'
 import { Separator } from './components/ui/separator'
 import { useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 
 export function ScrollToTop() {
   const [pathname] = useLocation();
@@ -19,6 +20,7 @@ export function ScrollToTop() {
 function App() {
   return (
     <div>
+      <Analytics />
       <ScrollToTop />
       <NavDock />
       <main>
