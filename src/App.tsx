@@ -2,7 +2,7 @@ import './App.css'
 import { Hero } from './components/hero'
 import { ProjectCard } from './components/project-card'
 import { NavDock } from './components/nav-dock'
-import { PlayIcon, Trophy } from 'lucide-react'
+import { Brush, PlayIcon, Trophy } from 'lucide-react'
 import { cn } from './lib/utils'
 import { InteractiveGridPattern } from './components/ui/interactive-grid-pattern'
 
@@ -13,6 +13,10 @@ import portfolio_thumbnail from './assets/images/portfolio_thumbnail.png'
 import cat_animation_thumbnail from './assets/images/cat_animation_thumbnail.png'
 import ceramics_timeline_thumbnail from './assets/images/ceramics_timeline_thumbnail.png'
 import big_2_thumbnail from './assets/images/big_2_thumbnail.png'
+// import { Artfolio } from './components/artfolio'
+import { Marquee } from './components/ui/marquee'
+import { BentoCard, BentoGrid } from './components/ui/bento-grid'
+import { Separator } from './components/ui/separator'
 
 function App() {
 
@@ -21,7 +25,7 @@ function App() {
   const projects = [
     {
       title: "Harmonic Hustle",
-      description: description,
+      description: "Using C++ and OpenGL, develop a user-interactive rhythm-based game that contains multiple different scenes along with key-mapping and audio based on ECS pattern.",
       mediaSrc: "https://youtube.com/embed/lfx6yT8nD4E",
       thumbnailSrc: harmonic_hustle_thumbnail,
       thumbnailAlt: "Harmonic Hustle Trailer",
@@ -81,7 +85,7 @@ function App() {
     },
     {
       title: "Big 2 Game",
-      description: description,
+      description: "An altered version of the game Big 2 in Java with a graphic user interface through Swing and layering multiple JFrames and JPanels.",
       mediaSrc: "https://youtube.com/embed/UtmRNijrMRI",
       thumbnailSrc: big_2_thumbnail,
       thumbnailAlt: "Big 2 Game Demo",
@@ -89,6 +93,70 @@ function App() {
       githubLink: "https://github.com/ariamj/Big2-Game",
     },
   ]
+
+  const artfolioFeatures = [
+    {
+      src: "/images/art_gallery/roses_wc.jpeg",
+      alt: "Roses Watercolor"
+    },
+    {
+      src: "/images/art_gallery/forest_wc.jpeg",
+      alt: "Forest Watercolor"
+    },
+    {
+      src: "/images/art_gallery/river_wc.jpeg",
+      alt: "River Watercolor"
+    },
+    {
+      src: "/images/art_gallery/birds_wc.jpeg",
+      alt: "Birds Watercolor"
+    },
+    {
+      src: "/images/art_gallery/bedroom_marker.jpeg",
+      alt: "Bedroom Marker"
+    },
+    {
+      src: "/images/art_gallery/xmas_card.jpeg",
+      alt: "Christmas Card"
+    }
+  ]
+
+  const artfolioBentoGrid = {
+    Icon: Brush,
+    name: "Artfolio",
+    description: "A collection of my art and design work, including digital and traditional illustrations, graphic design projects, and more.",
+    href: "/artfolio",
+    cta: "View Artfolio",
+    className: "glass col-span-3 mx-16 my-8",
+    background: (
+      <Marquee
+        pauseOnHover
+        className="absolute bg-transparent top-10 [mask-image:linear-gradient(to_top,transparent_15%,#000_100%)] [--duration:20s]"
+      >
+        {artfolioFeatures.map((img, index) => (
+          <figure
+            key={index}
+            className={cn(
+              "relative w-32 cursor-pointer overflow-hidden rounded-xl",
+              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+            )}
+            >
+              <figcaption className="sr-only">{img.alt}</figcaption>
+              <div className={cn(
+                "mb-4 break-inside-avoid overflow-hidden rounded-xl",
+                "border-gray-950/[.1] hover:bg-gray-950/[.05] dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+              )}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="h-auto w-full object-cover transition-opacity duration-300 hover:opacity-90"
+                />
+              </div>
+            </figure>
+        ))}
+      </Marquee>
+    )
+  }
 
   return (
     <div className="bg-black">
@@ -111,17 +179,31 @@ function App() {
           />
         ))}
       </div>
-      <div className="min-h-32">
+      <div className="relative h-64 overflow-visible">
         <InteractiveGridPattern
           className={cn(
               "[mask-image:radial-gradient(450px_circle_at_center,black,transparent)]",
               "inset-x-[-25%] inset-y-[-40%] -skew-y-12",
-              "relative z-0 -top-100"
+              "absolute -inset-y-32 -inset-x-64 h-[calc(100%+16rem)]"
           )}
           width={60}
           height={60}
           squaresClassName="hover:fill-white/20"
         />
+      </div>
+      <BentoGrid>
+        <BentoCard {...artfolioBentoGrid} />
+      </BentoGrid>
+      {/* <Artfolio /> */}
+      {/* <Separator /> */}
+      <div className="m-16 pt-12 text-center text-white/80">
+      <Separator className="bg-neutral-700 mb-16" />
+        <p className="text-sm">
+          Arianna Joe
+        </p>
+        <p className="text-xs mt-4">
+          © 2026 All rights reserved
+        </p>
       </div>
       <NavDock />
     </div>
