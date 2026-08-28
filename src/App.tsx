@@ -20,7 +20,6 @@ export function ScrollToTop() {
 function App() {
   return (
     <div>
-      <Analytics />
       <ScrollToTop />
       <NavDock />
       <main>
@@ -39,6 +38,7 @@ function App() {
           </p>
         </div>
       </main>
+      <Analytics />
     </div>
   )
 }
