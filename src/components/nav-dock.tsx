@@ -4,6 +4,7 @@ import { RiBrushLine, RiCloseLargeLine, RiGithubLine, RiLinkedinLine, RiMenuLine
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import React from 'react'
+import { House } from 'lucide-react'
 
 export function NavDock() {
     const [openDock, setOpenDock] = React.useState(false)
@@ -14,19 +15,28 @@ export function NavDock() {
 
     const dockItems = [
         {
+            icon: <House className="size-4 text-white" />,
+            label: "Home",
+            href: "/",
+            external: false
+        },
+        {
             icon: <RiBrushLine className="size-4 text-white" />,
             label: "Artfolio",
-            href: "https://linkedin.com"
+            href: "/artfolio",
+            external: false
         },
         {
             icon: <RiGithubLine className="size-4 text-white" />,
             label: "GitHub",
-            href: "https://github.com/ariamj"
+            href: "https://github.com/ariamj",
+            external: true
         },
         {
             icon: <RiLinkedinLine className="size-4 text-white" />,
             label: "LinkedIn",
-            href: "https://www.linkedin.com/in/arianna-joe"
+            href: "https://www.linkedin.com/in/arianna-joe",
+            external: true
         }
     ]
     
@@ -46,8 +56,7 @@ export function NavDock() {
                         <Tooltip>
                             <a
                                 href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                {...(item.external && { target: "_blank", rel: "noopener noreferrer" })}
                             >
                                 <TooltipTrigger render={(
                                     <Button

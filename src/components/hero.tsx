@@ -2,6 +2,7 @@ import auroras from '@/assets/images/Auroras_sig.png'
 import { InteractiveGridPattern } from './ui/interactive-grid-pattern'
 import { cn } from '@/lib/utils'
 import { TextAnimate } from './ui/text-animate'
+import { AuroraText } from './ui/aurora-text'
 
 export function Hero() {
     return (
@@ -25,7 +26,7 @@ export function Hero() {
             />
             <div className="relative z-30 flex flex-col justify-start text-left text-white !text-white">
                 <h1 className="text-4xl md:text-6xl !text-white">
-                    Welcome to my Portfolio!
+                    <AuroraText colors={["#FFFFFF", "#888888"]}>Welcome to my Portfolio!</AuroraText>
                 </h1>
                 <TextAnimate animation="fadeIn" by="line" as="h6" delay={0.2} className="text-lg md:text-xl !text-white/80 pt-2">
                     {`Explore my projects and artwork.`}
