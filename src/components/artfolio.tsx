@@ -22,6 +22,7 @@ export function Artfolio() {
         "fashion_green_dress_dig.jpeg",
         "forest_wc.jpeg",
         "gate_charcoal.jpeg",
+        "red_glitter_gown.png",
         "grendel_char.jpeg",
         "house_sketch.jpeg",
         "instagram.jpeg",

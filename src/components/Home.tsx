@@ -16,12 +16,12 @@ import { BentoCard, BentoGrid } from '@/components/ui/bento-grid'
 
 function Home() {
 
-  const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+//   const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
   const projects = [
     {
       title: "Harmonic Hustle",
-      description: "Using C++ and OpenGL, develop a user-interactive rhythm-based game that contains multiple different scenes along with key-mapping and audio based on ECS pattern.",
+      description: "A team-developed rhythm-based game built with C++ and OpenGL using the Entity-Component-System (ECS) pattern. The game features multiple interactive scenes, key mapping, audio integration, and theme-consistent user interfaces. My contributions focused primarily on implementing dynamic text rendering with the FreeType library, developing game logic, and helping plan and map out UI scenes. I also contributed to JSON-based game state persistence and other gameplay functionality.",
       mediaSrc: "https://youtube.com/embed/lfx6yT8nD4E",
       thumbnailSrc: harmonic_hustle_thumbnail,
       thumbnailAlt: "Harmonic Hustle Trailer",
@@ -36,42 +36,16 @@ function Home() {
       githubLink: "https://github.com/ariamj/Harmonic-Hustle",
     },
     {
-      title: "Portfolio Website",
-      description: description,
-      mediaSrc: portfolio_thumbnail,
-      thumbnailSrc: portfolio_thumbnail,
-      thumbnailAlt: "Portfolio Website thumbnail",
-      image: true,
-      links: ["https://ariaj-portfolio.vercel.app/"],
-      githubLink: "https://github.com/ariamj/portfolio",
-    },
-    {
       title: "Cat Animation",
-      description: description,
+      description: "An interactive 3D animation created with Three.js as part of an animation course. The project features a 3D cat with animations for standing, sitting, and walking, culminating in the cat pushing a ball off a cliff. I explored materials, textures, 3D rendering, and animation while learning how interactive 3D content can be created for the web.",
       mediaSrc: "https://youtube.com/embed/x448crcECJ8",
       thumbnailSrc: cat_animation_thumbnail,
       thumbnailAlt: "Cat Animation",
       image: false,
     },
     {
-      title: "Fish Animation",
-      description: description,
-      mediaSrc: fish_animation,
-      thumbnailSrc: fish_animation,
-      thumbnailAlt: "Fish Animation",
-      image: true,
-    },
-    {
-      title: "Jelly Fish Animation",
-      description: description,
-      mediaSrc: jellyfish_animation,
-      thumbnailSrc: jellyfish_animation,
-      thumbnailAlt: "Jelly Fish Animation",
-      image: true,
-    },
-    {
       title: "Ceramics Timeline Website",
-      description: description,
+      description: "An interactive website exploring key moments in the history of ceramics through a visual timeline. I designed the UI/UX and used AI-assisted development tools to accelerate the frontend implementation. I iteratively refined both the design and code manually to match my intended visual direction and user experience, exploring how AI can be incorporated into a modern frontend development workflow.",
       mediaSrc: ceramics_timeline_thumbnail,
       thumbnailSrc: ceramics_timeline_thumbnail,
       thumbnailAlt: "Ceramics Timeline thumbnail",
@@ -81,12 +55,38 @@ function Home() {
     },
     {
       title: "Big 2 Game",
-      description: "An altered version of the game Big 2 in Java with a graphic user interface through Swing and layering multiple JFrames and JPanels.",
+      description: "A Java implementation of the card game Big 2 with a custom graphical interface built using Swing. The project involved designing an interactive interface for two-player gameplay, including turn management, visual card tracking, and game state transitions. Implemented JSON-based data persistence to allow players to save and resume games, and used JUnit to test the game logic across different possible outcomes.",
       mediaSrc: "https://youtube.com/embed/UtmRNijrMRI",
       thumbnailSrc: big_2_thumbnail,
       thumbnailAlt: "Big 2 Game Demo",
       image: false,
       githubLink: "https://github.com/ariamj/Big2-Game",
+    },
+    {
+      title: "Portfolio Website",
+      description: "A personal portfolio website designed and developed to showcase my projects, technical experience, and artwork. Built with React, Vite, and TypeScript, with a focus on creating a visually engaging and responsive experience while maintaining clear navigation and presentation.",
+      mediaSrc: portfolio_thumbnail,
+      thumbnailSrc: portfolio_thumbnail,
+      thumbnailAlt: "Portfolio Website thumbnail",
+      image: true,
+      links: ["https://ariaj-portfolio.vercel.app/"],
+      githubLink: "https://github.com/ariamj/portfolio",
+    },
+    {
+      title: "Fish Animation",
+      description: "A hand-drawn animation created in Procreate exploring frame-by-frame animation and movement. The animation depicts a koi fish swimming through an underwater environment.",
+      mediaSrc: fish_animation,
+      thumbnailSrc: fish_animation,
+      thumbnailAlt: "Fish Animation",
+      image: true,
+    },
+    {
+      title: "Jelly Fish Animation",
+      description: "A hand-drawn animation created in Procreate exploring a continuous looping animation. Multiple jellyfish float and drift across an underwater scene in different directions, creating a continuous looping animation.",
+      mediaSrc: jellyfish_animation,
+      thumbnailSrc: jellyfish_animation,
+      thumbnailAlt: "Jelly Fish Animation",
+      image: true,
     },
   ]
 
@@ -114,6 +114,10 @@ function Home() {
     {
       src: "/images/art_gallery/xmas_card.jpeg",
       alt: "Christmas Card"
+    },
+    {
+        src: "images/art_gallery/red_glitter_gown.png",
+        alt: "Red Glitter Gown"
     }
   ]
 
